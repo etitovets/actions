@@ -1,14 +1,20 @@
 name: First Workwlow
 on: [push, workflow_dispatch]
 jobs:
-  first-job:
+  get-code:
     runs-on: ubuntu-latest
     steps:
       - name: Clone Code
         uses: actions/checkout@v4
-      - name: Print Greeting
-        run: echo "Hello World"
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run tests
+        run: echo "run our test"
       - name: List files
         run: ls -la
-      - name: Print GoodBye
-        run: echo "Bye"
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+        run: echo "Building"
